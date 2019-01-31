@@ -1,9 +1,9 @@
-Requirements:
+## Requirements:
  - Docker v18.09+
  - Docker-compose v1.23+
  - Git
 
-Clone repo
+## Clone repo
 ```
 $ git clone https://github.com/ivankomolin/lesson-sphinx.git ./
 ```
@@ -12,7 +12,7 @@ $ git clone https://github.com/ivankomolin/lesson-sphinx.git ./
 2. Edit etc/sphinx.conf for setting exist database
 
 
-Create index
+## Create index
 ```
 $ make index
 ```
@@ -29,12 +29,12 @@ total 16376 docs, 398.4 Kb
 total 0.1 sec, 5.251 Mb/sec, 215851 docs/sec
 ```
 
-Start searchd
+## Start searchd
 ```
 $ make start
 ```
 
-Connect to searchd
+## Connect to searchd
 ```
 $ make client
 ```
@@ -51,7 +51,7 @@ MySQL [(none)]>
 ```
 
 
-Simple example search heroes with facets
+## Example search heroes with facets
 ```
 MySQL [(none)]> SELECT id, * FROM marvel WHERE MATCH('spider') FACET character FACET hair FACET eye FACET sex;
 ```
@@ -127,7 +127,7 @@ MySQL [(none)]> SELECT id, * FROM marvel WHERE MATCH('spider') FACET character F
 
 ```
 
-Example select single facet filter:
+## Example select single facet filter:
 ```
 MySQL [(none)]> SELECT GROUPBY() as value, COUNT(*) as count FROM marvel WHERE MATCH('spider') AND eye!='' GROUP BY eye ORDER BY count DESC;
 ```
@@ -142,7 +142,7 @@ MySQL [(none)]> SELECT GROUPBY() as value, COUNT(*) as count FROM marvel WHERE M
 3 rows in set (0.00 sec)
 ```
 
-Example select facet filter in the form of a slider:
+## Example select facet filter in the form of a slider:
 ```
 MySQL [(none)]> SELECT MIN(year), MAX(year) FROM marvel WHERE MATCH('spider') AND year>0;
 ```
