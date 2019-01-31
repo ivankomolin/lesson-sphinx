@@ -1,7 +1,7 @@
 ## Requirements:
  - Docker v18.09+
- - Docker-compose v1.23+
  - Git
+ - Make
 
 ## Clone repo
 ```
