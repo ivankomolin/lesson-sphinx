@@ -8,7 +8,6 @@ index:
 
 start:
 	docker run --rm --detach --net=host --name=searchd \
-		-p 9306:9306 \
 		-v ${PWD}/data:/app/data \
 		-v ${PWD}/etc/sphinx.conf:/app/etc/sphinx.conf \
 		ivankomolin/sphinxsearch
