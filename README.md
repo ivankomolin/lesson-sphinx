@@ -53,7 +53,16 @@ MySQL [(none)]>
 
 ## Example search heroes with facets
 ```
-MySQL [(none)]> SELECT id, * FROM marvel WHERE MATCH('spider') FACET character FACET hair FACET eye FACET sex;
+SELECT 
+	id, name 
+FROM 
+	marvel 
+WHERE 
+	MATCH('spider') 
+FACET character 
+FACET hair 
+FACET eye 
+FACET sex;
 ```
 ```
 +-------+----------------------------------------------------+
@@ -129,7 +138,17 @@ MySQL [(none)]> SELECT id, * FROM marvel WHERE MATCH('spider') FACET character F
 
 ## Example select single facet filter:
 ```
-MySQL [(none)]> SELECT GROUPBY() as value, COUNT(*) as count FROM marvel WHERE MATCH('spider') AND eye!='' GROUP BY eye ORDER BY count DESC;
+SELECT 
+	GROUPBY() as value, 
+	COUNT(*) as count 
+FROM 
+	marvel 
+WHERE 
+	MATCH('spider') AND eye!='' 
+GROUP BY 
+	eye 
+ORDER BY 
+	count DESC;
 ```
 ```
 +-------+-------+
@@ -144,7 +163,13 @@ MySQL [(none)]> SELECT GROUPBY() as value, COUNT(*) as count FROM marvel WHERE M
 
 ## Example select facet filter in the form of a slider:
 ```
-MySQL [(none)]> SELECT MIN(year), MAX(year) FROM marvel WHERE MATCH('spider') AND year>0;
+SELECT 
+	MIN(year), 
+	MAX(year) 
+FROM 
+	marvel 
+WHERE 
+	MATCH('spider') AND year>0;
 ```
 ```
 +-----------+-----------+
